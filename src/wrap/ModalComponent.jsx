@@ -10,16 +10,16 @@ export default function ModalComponent ()  {
                 </div>
                 <div className="content">
                     <div className="gap">
-                        <label htmlFor="3일">3일</label>
                         <input type="radio" id='3일' />
+                        <label htmlFor="3일">3일</label>
                     </div>
                     <div className="gap">
-                        <label htmlFor="6일">6일</label>
                         <input type="radio" id='6일' />
+                        <label htmlFor="6일">6일</label>
                     </div>
                     <div className="gap">
-                        <label htmlFor="9일">9일</label>
                         <input type="radio" id='9일' />
+                        <label htmlFor="9일">9일</label>
                     </div>
                 </div>
             </div>
