@@ -9,7 +9,7 @@ export default function WrapComponent () {
         modal : false
     })
 
-    const ModalClick = () => {
+    const newPageOpenModal = () => {
         setState({
             ...state,
             modal:true
