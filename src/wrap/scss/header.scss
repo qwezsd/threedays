@@ -1,0 +1,27 @@
+#header {
+    width: 100%;
+    .container {
+        width: 100%;
+        .title {
+            width: 100%;
+            padding: 50px 0 25px 0;
+            .text {
+                width: 100%;
+                text-align: center;
+                span {
+                    font-family: KBO-Dia-Gothic_bold ;
+                    font-size: 45px;
+                    
+                }
+            }
+            .img {
+                text-align: right;
+                margin: 20px 40px 0;
+                span {
+                    font-family: Tenada;
+                    font-size: 45px;
+                }
+            }
+        }
+    }
+}
