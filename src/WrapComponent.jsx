@@ -15,6 +15,12 @@ export default function WrapComponent () {
             modal:true
         })
     }
+    const threedaysPageClose = () => {
+        setState({
+            ...state,
+            modal:false
+        })
+    }
 
     return (
         <div id='wrap'>
