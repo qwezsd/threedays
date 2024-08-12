@@ -24,9 +24,9 @@ export default function WrapComponent () {
 
     return (
         <div id='wrap'>
-            <HeaderComponent />
+            <HeaderComponent newPageOpenModal={newPageOpenModal}/>
             {state.modal &&
-                <ModalComponent />
+                <ModalComponent threedaysPageClose={threedaysPageClose} />
             }
         </div>
     );

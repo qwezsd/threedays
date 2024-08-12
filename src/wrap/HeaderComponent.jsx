@@ -1,7 +1,11 @@
 import React from 'react';
 import './scss/header.scss'
 
-export default function HeaderComponent () {
+export default function HeaderComponent ({newPageOpenModal}) {
+
+    const onClickPage = () => {
+        newPageOpenModal()
+    }
     return (
         <div id='header'>
             <div className="container">
@@ -12,7 +16,7 @@ export default function HeaderComponent () {
                         </span>
                     </div>
                     <div className="img">
-                        <span>+</span>
+                        <span onClick={onClickPage}>+</span>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './scss/modal.scss'
 
-export default function ModalComponent ()  {
+export default function ModalComponent ({threedaysPageClose})  {
     return (
         <div id='modal'>
             <div className="container">
