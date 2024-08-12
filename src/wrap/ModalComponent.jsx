@@ -78,7 +78,6 @@ export default function ModalComponent({ threedaysPageClose }) {
                         </div>
                     ) : ( // 시작 버튼이 클릭된 후
                         <div className="date-list">
-                            <h3>체크할 날짜:</h3>
                             <ul>
                                 {dates.map((date, index) => (
                                     <li key={index}>
