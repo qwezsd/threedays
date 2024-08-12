@@ -6,6 +6,7 @@ export default function HeaderComponent ({newPageOpenModal}) {
     const onClickPage = () => {
         newPageOpenModal()
     }
+    
     return (
         <div id='header'>
             <div className="container">

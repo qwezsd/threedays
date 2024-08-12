@@ -2,8 +2,17 @@ import React from 'react';
 import './scss/modal.scss'
 
 export default function ModalComponent ({threedaysPageClose})  {
+
+    const onClickOutsideModal = (e) => {
+
+        console.log(e.target)
+        if (e.target.id === 'modal') {
+            threedaysPageClose();
+        }
+    };
+
     return (
-        <div id='modal'>
+        <div id='modal' onClick={onClickOutsideModal}>
             <div className="container">
                 <div className="title">
                     <input type="text" placeholder='목표 설정하삼' />

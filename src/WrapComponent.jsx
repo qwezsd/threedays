@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './wrap.scss'
 import HeaderComponent from './wrap/HeaderComponent';
 import ModalComponent from './wrap/ModalComponent';
+import MainComponent from './wrap/MainComponent';
 
 export default function WrapComponent () {
 
@@ -23,8 +24,9 @@ export default function WrapComponent () {
     }
 
     return (
-        <div id='wrap'>
+        <div id='wrap' >
             <HeaderComponent newPageOpenModal={newPageOpenModal}/>
+            <MainComponent />
             {state.modal &&
                 <ModalComponent threedaysPageClose={threedaysPageClose} />
             }
