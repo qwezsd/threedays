@@ -13,7 +13,7 @@
         height: 800px;
         left: 548px;
         // background-color: #fdd7a9af;
-        background-color: #e89a3c;
+        background-color: #ebcfa8;
         border: transparent;
         border-radius: 10%;
         .title {
@@ -38,7 +38,7 @@
             .duration {
                 width: 100%;
                 height: auto;
-                padding: 40px 0;
+                padding-bottom: 40px;
                 .gap {
                     margin: 50px 0;
                     display: flex;
@@ -59,6 +59,7 @@
                 }
             }
             .date-list {
+                
                 ul {
                     display: flex;
                     align-items: center;
@@ -75,9 +76,9 @@
             }
             .button {
                 text-align: center;
-                // display: flex;
-                // align-content: center;
-                // justify-content: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
                 button {
                     background-color: transparent;
                     border: none;

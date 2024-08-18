@@ -61,8 +61,8 @@ export default function ModalComponent({ threedaysPageClose }) {
                     <input type="text" placeholder='목표 설정하삼' />
                 </div>
                 <div className="content">
-                    {!isStarted ? ( // 시작되지 않은 경우
-                        <div className="duration">
+                    {!isStarted ?( //시작되지 않은 경우
+                    <div className="duration">
                             <div className="gap">
                                 <input type="radio" id='3일' name='작심삼일' value={3} onChange={handleDurationChange} defaultChecked />
                                 <label htmlFor="3일">3일</label>
@@ -75,10 +75,10 @@ export default function ModalComponent({ threedaysPageClose }) {
                                 <input type="radio" id='9일' name='작심삼일' value={9} onChange={handleDurationChange} />
                                 <label htmlFor="9일">9일</label>
                             </div>
-                        </div>
-                    ) : ( // 시작 버튼이 클릭된 후
-                        <div className="date-list">
-                            <ul>
+                    </div>
+                    ) : ( //시작 버튼이 클릭된 후 
+                    <div className="date-list">
+                        <ul>
                                 {dates.map((date, index) => (
                                     <li key={index}>
                                         {date}
@@ -96,14 +96,22 @@ export default function ModalComponent({ threedaysPageClose }) {
                                                 />
                                             ))} */}
                                         </div>
+                                        
                                     </li>
                                 ))}
-                            </ul>
-                        </div>
+                        </ul>
+                    </div>
                     )}
                     <div className="button">
                         {!isStarted && (
                             <button onClick={handleStart}><span>시작</span></button>
+                        )}
+                        {
+                            isStarted && (
+                            <>
+                                <button><span>이전</span></button>
+                                <button><span>다음</span></button>
+                            </>
                         )}
                     </div>
                 </div>
