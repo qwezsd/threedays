@@ -18,7 +18,7 @@
         border-radius: 10%;
         .title {
             width: 100%;
-            padding: 100px 0 50px ;
+            padding: 50px 0;
             text-align: center;
             input {
                 width: auto;
@@ -61,18 +61,20 @@
             }
             .date-list {
                 height: 420px;
-                display: flex;
+                // display: flex;
                 align-items: center;
                 justify-content: space-evenly;
                 flex-wrap: wrap;
                 ul {
+                    height: 100%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-wrap: wrap;
                     li {
                         flex: 1 1 33.333%;
-                        margin: 30px 0 ;
+                        // margin: 30px 0 ;
+                        margin-bottom: 30px;
                         font-family: KBO-Dia-Gothic_bold ;
                         font-size: 30px;
                         text-align: center;
