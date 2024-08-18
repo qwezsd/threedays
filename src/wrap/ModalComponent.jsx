@@ -93,7 +93,7 @@ export default function ModalComponent({ threedaysPageClose }) {
                                                     alt={sticker.alt}
                                                      onClick={() => handleStickerChange(date, sticker.id)}
                                                     style={{
-                                                        border: stickers[date] === sticker.id ? '2px solid blue' : 'none' // 선택된 스티커에 테두리 추가
+                                                        border: stickers[date] === sticker.id ? '2px solid blue' : 'none'
                                                     }}
                                                     
                                                 />
