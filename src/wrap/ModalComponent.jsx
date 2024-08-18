@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './scss/modal.scss';
 
 // 이미지 불러오기
-// import sticker1 from './images/sticker1.png';
+import sticker1 from '../wrap/success.png';
 // import sticker2 from './images/sticker2.png';
 // import sticker3 from './images/sticker3.png';
 
-// const stickers = [
-//     { id: 'sticker1', src: sticker1, alt: '스티커 1' },
-//     { id: 'sticker2', src: sticker2, alt: '스티커 2' },
-//     { id: 'sticker3', src: sticker3, alt: '스티커 3' },
-// ];
+const stickersOption = [
+    { id: 'sticker1', src: sticker1, alt: '스티커 1' }
+    // { id: 'sticker2', src: sticker2, alt: '스티커 2' },
+    // { id: 'sticker3', src: sticker3, alt: '스티커 3' },
+];
 
 export default function ModalComponent({ threedaysPageClose }) {
 
@@ -54,6 +54,9 @@ export default function ModalComponent({ threedaysPageClose }) {
         }));
     };
 
+    const onClickPrevPage = () => {
+        setIsStarted(false)
+    }
     return (
         <div id='modal' onClick={onClickOutsideModal}>
             <div className="container">
@@ -64,15 +67,15 @@ export default function ModalComponent({ threedaysPageClose }) {
                     {!isStarted ?( //시작되지 않은 경우
                     <div className="duration">
                             <div className="gap">
-                                <input type="radio" id='3일' name='작심삼일' value={3} onChange={handleDurationChange} defaultChecked />
+                                <input type="radio" id='3일' name='작심삼일' value={3} onChange={handleDurationChange} checked={duration === 3} />
                                 <label htmlFor="3일">3일</label>
                             </div>
                             <div className="gap">
-                                <input type="radio" id='6일' name='작심삼일' value={6} onChange={handleDurationChange} />
+                                <input type="radio" id='6일' name='작심삼일' value={6} onChange={handleDurationChange} checked={duration === 6} />
                                 <label htmlFor="6일">6일</label>
                             </div>
                             <div className="gap">
-                                <input type="radio" id='9일' name='작심삼일' value={9} onChange={handleDurationChange} />
+                                <input type="radio" id='9일' name='작심삼일' value={9} onChange={handleDurationChange} checked={duration === 9} />
                                 <label htmlFor="9일">9일</label>
                             </div>
                     </div>
@@ -83,18 +86,18 @@ export default function ModalComponent({ threedaysPageClose }) {
                                     <li key={index}>
                                         {date}
                                         <div className="sticker-selection">
-                                            {/* {stickers.map(sticker => (
+                                            {stickersOption.map(sticker => (
                                                 <img 
                                                     key={sticker.id}
                                                     src={sticker.src}
                                                     alt={sticker.alt}
-                                                    onClick={() => handleStickerChange(date, sticker.id)}
+                                                     onClick={() => handleStickerChange(date, sticker.id)}
                                                     style={{
-                                                        cursor: 'pointer',
                                                         border: stickers[date] === sticker.id ? '2px solid blue' : 'none' // 선택된 스티커에 테두리 추가
                                                     }}
+                                                    
                                                 />
-                                            ))} */}
+                                            ))}
                                         </div>
                                         
                                     </li>
@@ -109,7 +112,7 @@ export default function ModalComponent({ threedaysPageClose }) {
                         {
                             isStarted && (
                             <>
-                                <button><span>이전</span></button>
+                                <button onClick={onClickPrevPage}><span>이전</span></button>
                                 <button><span>다음</span></button>
                             </>
                         )}
