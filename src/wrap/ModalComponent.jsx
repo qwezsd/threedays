@@ -92,9 +92,9 @@ export default function ModalComponent({ threedaysPageClose }) {
                                                     src={sticker.src}
                                                     alt={sticker.alt}
                                                      onClick={() => handleStickerChange(date, sticker.id)}
-                                                    style={{
-                                                        border: stickers[date] === sticker.id ? '2px solid blue' : 'none'
-                                                    }}
+                                                    // style={{
+                                                    //     border: stickers[date] === sticker.id ? '2px solid blue' : 'none'
+                                                    // }}
                                                     
                                                 />
                                             ))}
