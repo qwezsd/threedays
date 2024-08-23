@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import './scss/modal.scss';
 
 // 이미지 불러오기
-import sticker1 from '../wrap/success.png';
-// import sticker2 from './images/sticker2.png';
+import sticker1 from '../wrap/success_day.png';
+import sticker2 from '../wrap/fail_day.png';
 // import sticker3 from './images/sticker3.png';
+
+// 성공하면 100점 실패하면 0점 --> 이틀 성공, 이틀 실패하면 50점임
+// 총합 50점부터 성공한 걸로 ㄱㄱ 
 
 const stickersOption = [
     { id: 'sticker1', src: sticker1, alt: '스티커 1' }
