@@ -22,6 +22,20 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     const [stickers, setStickers] = useState({}); // 날짜별 스티커 상태 관리
     const [isStarted, setIsStarted] = useState(false); // 시작 여부 상태
 
+
+    const calculateFinalResult = () => {
+        let totalScore = 0;
+        Object.values(stickers).forEach(sticker => {
+            if (sticker === 'success_day'){
+                totalScore += 100;
+            }
+            else if (sticker === 'fail_day'){
+                totalScore += 50;
+            }
+        })
+        // if(totalScore/)
+    }
+
     const handleDurationChange = (e) => {
         setDuration(Number(e.target.value));
     };
@@ -65,7 +79,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
         }, 0);
         if(totalScore >= 50 * dates.length){
             setFinalResult('success')
-        }
+        }//fail.png만 제대로 안 나옴 확인...
         else {
             setFinalResult('fail')
         }
