@@ -10,8 +10,8 @@ import sticker2 from '../wrap/fail_day.png';
 // 총합 50점부터 성공한 걸로 ㄱㄱ 
 
 const stickersOption = [
-    { id: 'sticker1', src: sticker1, alt: '스티커 1' }
-    // { id: 'sticker2', src: sticker2, alt: '스티커 2' },
+    { id: 'sticker1', src: sticker1, alt: '스티커 1' },
+    { id: 'sticker2', src: sticker2, alt: '스티커 2' }
     // { id: 'sticker3', src: sticker3, alt: '스티커 3' },
 ];
 
