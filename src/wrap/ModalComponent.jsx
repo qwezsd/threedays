@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import './scss/modal.scss';
 
 // 이미지 불러오기
-import sticker1 from '../wrap/success_day.png';
-import sticker2 from '../wrap/fail_day.png';
-// import sticker3 from './images/sticker3.png';
+import successDay from '../wrap/success_day.png';
+import failDay from '../wrap/fail_day.png';
+import success from '../wrap/success.png';
+import fail from '../wrap/fail.png';
 
 // 성공하면 100점 실패하면 0점 --> 이틀 성공, 이틀 실패하면 50점임
 // 총합 50점부터 성공한 걸로 ㄱㄱ 
 
 const stickersOption = [
-    { id: 'sticker1', src: sticker1, alt: '스티커 1' },
-    { id: 'sticker2', src: sticker2, alt: '스티커 2' }
-    // { id: 'sticker3', src: sticker3, alt: '스티커 3' },
+    { id: 'success', src: successDay, alt: 'Success', score : 100 },
+    { id: 'fail', src: failDay, alt: 'Fail', score:50 }
 ];
 
-export default function ModalComponent({ threedaysPageClose }) {
+export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
 
     const [duration, setDuration] = useState(3); // 기본값은 3일
     const [dates, setDates] = useState([]);
@@ -51,11 +51,26 @@ export default function ModalComponent({ threedaysPageClose }) {
     };
 
     const handleStickerChange = (date, stickerId) => {
+        const sticker = stickersOption.find(sticker => sticker.id === stickerId);
         setStickers(prevStickers => ({
             ...prevStickers,
             [date]: stickerId
         }));
     };
+
+    const handleFinalResult = () => {
+        const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
+            const sticker = stickersOption.find(sticker => sticker.id === stickerId);
+            return acc + (sticker ? sticker.score : 0)
+        }, 0);
+        if(totalScore >= 50 * dates.length){
+            setFinalResult('success')
+        }
+        else {
+            setFinalResult('fail')
+        }
+        threedaysPageClose();
+    }
 
     const onClickPrevPage = () => {
         setIsStarted(false)
@@ -95,10 +110,6 @@ export default function ModalComponent({ threedaysPageClose }) {
                                                     src={sticker.src}
                                                     alt={sticker.alt}
                                                      onClick={() => handleStickerChange(date, sticker.id)}
-                                                    // style={{
-                                                    //     border: stickers[date] === sticker.id ? '2px solid blue' : 'none'
-                                                    // }}
-                                                    
                                                 />
                                             ))}
                                         </div>
@@ -107,19 +118,17 @@ export default function ModalComponent({ threedaysPageClose }) {
                                 ))}
                         </ul>
                     </div>
+                    )}<div className="button">
+                    {!isStarted && (
+                        <button onClick={handleStart}><span>시작</span></button>
                     )}
-                    <div className="button">
-                        {!isStarted && (
-                            <button onClick={handleStart}><span>시작</span></button>
-                        )}
-                        {
-                            isStarted && (
-                            <>
-                                <button onClick={onClickPrevPage}><span>이전</span></button>
-                                <button><span>다음</span></button>
-                            </>
-                        )}
-                    </div>
+                    {isStarted && (
+                        <>
+                            <button onClick={onClickPrevPage}><span>이전</span></button>
+                            <button onClick={handleFinalResult}><span>다음</span></button>
+                        </>
+                    )}
+                </div>
                 </div>
             </div>
         </div>
