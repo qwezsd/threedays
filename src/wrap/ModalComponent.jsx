@@ -52,7 +52,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
         for (let i = 0; i < duration; i++) {
             const newDate = new Date();
             newDate.setDate(today.getDate() + i);
-            const month = newDate.getMonth() + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
+            const month = newDate.getMonth() + 1; // 월은 0부터 시작
             const day = newDate.getDate();
             dateList.push(`${month}/${day}`);
         }
@@ -71,7 +71,6 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     };
 
     const handleStickerChange = (date, stickerId) => {
-        // const sticker = stickersOption.find(sticker => sticker.id === stickerId);
         setStickers(prevStickers => ({
             ...prevStickers,
             [date]: stickerId
