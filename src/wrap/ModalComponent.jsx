@@ -33,7 +33,13 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
                 totalScore += 50;
             }
         })
-        // if(totalScore/)
+        if(totalScore/duration >= 50){
+            setFinalResult('success')
+        }
+        else {
+            setFinalResult('fail')
+        }
+        threedaysPageClose()
     }
 
     const handleDurationChange = (e) => {
@@ -65,7 +71,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     };
 
     const handleStickerChange = (date, stickerId) => {
-        const sticker = stickersOption.find(sticker => sticker.id === stickerId);
+        // const sticker = stickersOption.find(sticker => sticker.id === stickerId);
         setStickers(prevStickers => ({
             ...prevStickers,
             [date]: stickerId
