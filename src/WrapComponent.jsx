@@ -26,7 +26,7 @@ export default function WrapComponent () {
     return (
         <div id='wrap' >
             <HeaderComponent newPageOpenModal={newPageOpenModal}/>
-            <MainComponent />
+            <MainComponent modal={state.modal}/>
             {state.modal &&
                 <ModalComponent threedaysPageClose={threedaysPageClose} />
             }
