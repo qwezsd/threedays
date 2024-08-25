@@ -4,19 +4,13 @@ import success from '../wrap/success.png'
 import fail from '../wrap/fail.png'
 import ModalComponent from './ModalComponent';
 
-export default function MainComponent ({modal}) {
-    const [showModal, setShowModal] = useState(true);
-    const [finalResult, setFinalResult] = useState(null)
-    const [state, setState] = useState({
-        modal : false
-    })
+export default function MainComponent ({  modal, threedaysPageClose }) {
 
-    const threedaysPageClose = () => {
-        setShowModal(false)
-    }
+    const [finalResult, setFinalResult] = useState(null)
+
     return (
         <div className="main-container">
-            {state.modal && (
+            {modal && (
                 <ModalComponent 
                     threedaysPageClose={threedaysPageClose} 
                     setFinalResult={setFinalResult} 

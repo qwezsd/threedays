@@ -82,11 +82,13 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
             const sticker = stickersOption.find(sticker => sticker.id === stickerId);
             return acc + (sticker ? sticker.score : 0)
         }, 0);
-        if(totalScore >= 50 * dates.length){
+        if(totalScore >= 50 / duration){
             setFinalResult('success')
+            console.log('성공 ㅋㅎ')
         }//fail.png만 제대로 안 나옴 확인...
         else {
             setFinalResult('fail')
+            console.log('실패?')
         }
         threedaysPageClose();
     }
