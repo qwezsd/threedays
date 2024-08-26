@@ -82,7 +82,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
             const sticker = stickersOption.find(sticker => sticker.id === stickerId);
             return acc + (sticker ? sticker.score : 0)
         }, 0);
-        if(totalScore >= 50 / duration){
+        if(totalScore >= 50 ){
             // setFinalResult('success')
             setFinalResult(true)
             console.log('성공 ㅋㅎ')

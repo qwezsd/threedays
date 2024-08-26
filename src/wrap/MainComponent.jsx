@@ -9,7 +9,7 @@ export default function MainComponent ({  modal, threedaysPageClose }) {
     const [finalResult, setFinalResult] = useState(true)
 
     return (
-        <div className="main">
+        <div id="main">
             <div className="container">
                 {modal && (
                     <ModalComponent 
