@@ -76,25 +76,46 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
             [date]: stickerId
         }));
     };
-
     const handleFinalResult = () => {
+        if (Object.keys(stickers).length === 0) {
+            console.log('스티커를 선택해 주세요.');
+            return;
+        }
+    
         const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
             const sticker = stickersOption.find(sticker => sticker.id === stickerId);
-            return acc + (sticker ? sticker.score : 0)
+            return acc + (sticker ? sticker.score : 0);
         }, 0);
-        if(totalScore >= 50 ){
-            // setFinalResult('success')
-            setFinalResult(true)
-            console.log('성공 ㅋㅎ')
-        }//fail.png만 제대로 안 나옴 확인...
-        else {
-            // setFinalResult('fail')
-
-            setFinalResult(false)
-            console.log('실패?')
+    
+        if (totalScore >= 50) {
+            setFinalResult(true);
+            console.log('modal성공 ㅋㅎ');
+        } else {
+            setFinalResult(false);
+            console.log('modal실패?');
         }
         threedaysPageClose();
-    }
+    };
+    
+    // const handleFinalResult = () => {
+    //     const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
+    //         const sticker = stickersOption.find(sticker => sticker.id === stickerId);
+    //         return acc + (sticker ? sticker.score : 0)
+    //     }, 0);
+    //     if(totalScore >= 50 ){
+    //         // setFinalResult('success')
+    //         setFinalResult(true)
+    //         console.log('성공 ㅋㅎ')
+    //     }//fail.png만 제대로 안 나옴 확인...
+    //     else {
+    //         // setFinalResult('fail')
+
+    //         setFinalResult(false)
+    //         console.log('실패?')
+    //     }
+    //     threedaysPageClose();
+    // }
+    // 에효 표정 안 누르고 다음이면 93번이 문제고 표정 암거나 누르고 다음 누르면 87이 문제임
 
     const onClickPrevPage = () => {
         setIsStarted(false)

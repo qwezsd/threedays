@@ -8,6 +8,12 @@ export default function MainComponent ({  modal, threedaysPageClose }) {
 
     const [finalResult, setFinalResult] = useState(true)
 
+    React.useEffect(() => {
+        if (finalResult !== null) {
+            console.log(`최종 결과: ${finalResult ? '성공' : '실패'}`);
+        }
+    }, [finalResult]);
+    
     return (
         <div id="main">
             <div className="container">
