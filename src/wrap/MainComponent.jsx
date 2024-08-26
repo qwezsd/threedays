@@ -6,22 +6,24 @@ import ModalComponent from './ModalComponent';
 
 export default function MainComponent ({  modal, threedaysPageClose }) {
 
-    const [finalResult, setFinalResult] = useState(null)
+    const [finalResult, setFinalResult] = useState(true)
 
     return (
-        <div className="main-container">
-            {modal && (
-                <ModalComponent 
-                    // threedaysPageClose={threedaysPageClose} 
-                    setFinalResult={setFinalResult} 
-                />
-            )}
+        <div className="main">
+            <div className="container">
+                {modal && (
+                    <ModalComponent 
+                        // threedaysPageClose={threedaysPageCloses} 
+                        setFinalResult={setFinalResult} 
+                    />
+                )}
 
-            {finalResult && (
-                <div className="final-image">
-                    <img src={finalResult === 'success' ? success : fail} alt="Final Result" />
-                </div>
-            )}
+                {finalResult && (
+                    <div className="final-image">
+                        <img src={finalResult === 'success' ? success : fail} alt="Final Result" />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
