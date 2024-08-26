@@ -12,7 +12,7 @@ export default function MainComponent ({  modal, threedaysPageClose }) {
         <div className="main-container">
             {modal && (
                 <ModalComponent 
-                    threedaysPageClose={threedaysPageClose} 
+                    // threedaysPageClose={threedaysPageClose} 
                     setFinalResult={setFinalResult} 
                 />
             )}

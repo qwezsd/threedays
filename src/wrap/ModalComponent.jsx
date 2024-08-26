@@ -130,7 +130,9 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
                                                     key={sticker.id}
                                                     src={sticker.src}
                                                     alt={sticker.alt}
-                                                     onClick={() => handleStickerChange(date, sticker.id)}
+                                                     onClick={() => {handleStickerChange(date, sticker.id);
+                                                                    // calculateFinalResult()
+                                                     }} // 함수를 여러 개 실행 시키려면 중괄호로 묶어주기
                                                 />
                                             ))}
                                         </div>
