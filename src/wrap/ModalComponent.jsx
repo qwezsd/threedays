@@ -21,7 +21,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     const [dates, setDates] = useState([]);
     const [stickers, setStickers] = useState({}); // 날짜별 스티커 상태 관리
     const [isStarted, setIsStarted] = useState(false); // 시작 여부 상태
-
+    const [stickerSelection, setStickerSelection] = useState(null); // 스티커 선택창 상태
 
     const calculateFinalResult = () => {
         let totalScore = 0;
@@ -75,51 +75,33 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
             ...prevStickers,
             [date]: stickerId
         }));
+        setStickerSelection(null); // 스티커 선택 후 선택창 닫기
     };
-    const handleFinalResult = () => {
-        if (Object.keys(stickers).length === 0) {
-            console.log('스티커를 선택해 주세요.');
-            return;
-        }
     
+    const handleFinalResult = () => {
         const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
             const sticker = stickersOption.find(sticker => sticker.id === stickerId);
-            return acc + (sticker ? sticker.score : 0);
+            return acc + (sticker ? sticker.score : 0)
         }, 0);
-    
-        if (totalScore >= 50) {
-            setFinalResult(true);
-            console.log('modal성공 ㅋㅎ');
-        } else {
-            setFinalResult(false);
-            console.log('modal실패?');
+        if(totalScore >= 50 ){
+            setFinalResult('success')
+            console.log('성공 ㅋㅎ')
+        }//fail.png만 제대로 안 나옴 확인...
+        else {
+            setFinalResult('fail')
+            console.log('실패?')
         }
         threedaysPageClose();
-    };
-    
-    // const handleFinalResult = () => {
-    //     const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
-    //         const sticker = stickersOption.find(sticker => sticker.id === stickerId);
-    //         return acc + (sticker ? sticker.score : 0)
-    //     }, 0);
-    //     if(totalScore >= 50 ){
-    //         // setFinalResult('success')
-    //         setFinalResult(true)
-    //         console.log('성공 ㅋㅎ')
-    //     }//fail.png만 제대로 안 나옴 확인...
-    //     else {
-    //         // setFinalResult('fail')
-
-    //         setFinalResult(false)
-    //         console.log('실패?')
-    //     }
-    //     threedaysPageClose();
-    // }
-    // 에효 표정 안 누르고 다음이면 93번이 문제고 표정 암거나 누르고 다음 누르면 87이 문제임
+    }
 
     const onClickPrevPage = () => {
         setIsStarted(false)
     }
+
+    const handleStickerClick = (date) => {
+        setStickerSelection(date); // 선택창을 열고 현재 날짜를 저장
+    };
+
     return (
         <div id='modal' onClick={onClickOutsideModal}>
             <div className="container">
@@ -149,23 +131,30 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
                                     <li key={index}>
                                         {date}
                                         <div className="sticker-selection">
-                                            {stickersOption.map(sticker => (
-                                                <img 
-                                                    key={sticker.id}
-                                                    src={sticker.src}
-                                                    alt={sticker.alt}
-                                                     onClick={() => {handleStickerChange(date, sticker.id);
-                                                                    // calculateFinalResult()
-                                                     }} // 함수를 여러 개 실행 시키려면 중괄호로 묶어주기
-                                                />
-                                            ))}
+                                            <img 
+                                                src={stickers[date] ? stickersOption.find(sticker => sticker.id === stickers[date]).src : success} 
+                                                alt="Select Sticker" 
+                                                onClick={() => handleStickerClick(date)} 
+                                            />
                                         </div>
-                                        
+                                        {stickerSelection === date && (
+                                            <div className="sticker-options">
+                                                {stickersOption.map(sticker => (
+                                                    <img 
+                                                        key={sticker.id}
+                                                        src={sticker.src}
+                                                        alt={sticker.alt}
+                                                        onClick={() => handleStickerChange(date, sticker.id)}
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
                                     </li>
                                 ))}
                         </ul>
                     </div>
-                    )}<div className="button">
+                    )}
+                    <div className="button">
                     {!isStarted && (
                         <button onClick={handleStart}><span>시작</span></button>
                     )}

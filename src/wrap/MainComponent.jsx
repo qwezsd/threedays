@@ -13,14 +13,14 @@ export default function MainComponent ({  modal, threedaysPageClose }) {
             console.log(`최종 결과: ${finalResult ? '성공' : '실패'}`);
         }
     }, [finalResult]);
-    
+
     return (
         <div id="main">
             <div className="container">
                 {modal && (
                     <ModalComponent 
                         // threedaysPageClose={threedaysPageCloses} 
-                        setFinalResult={setFinalResult} 
+                        finalResult={finalResult} setFinalResult={setFinalResult} 
                     />
                 )}
 
