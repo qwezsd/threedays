@@ -85,6 +85,14 @@
                                 height: 70px;
                             }
                         }
+                        .sticker-options {
+                            // display: flex;
+                            img {
+                                cursor: pointer;
+                                width: 90px;
+                                height: 50px;
+                            }
+                        }
                     }
                 }
             }
