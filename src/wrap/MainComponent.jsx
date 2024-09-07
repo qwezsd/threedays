@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
-import './scss/main.scss'
-import success from '../wrap/success.png'
-import fail from '../wrap/fail.png'
+import React, { useState } from 'react';
+import './scss/main.scss';
+import success from '../wrap/success.png';
+import fail from '../wrap/fail.png';
 import ModalComponent from './ModalComponent';
 
-export default function MainComponent ({  modal, threedaysPageClose }) {
-
-    const [finalResult, setFinalResult] = useState(true)
+export default function MainComponent({ modal, threedaysPageClose }) {
+    const [finalResult, setFinalResult] = useState(null); // 초기값을 null로 설정
 
     React.useEffect(() => {
         if (finalResult !== null) {
-            console.log(`최종 결과: ${finalResult ? '성공' : '실패'}`);
+            console.log(`최종 결과: ${finalResult === 'success' ? '성공' : '실패'}`);
         }
     }, [finalResult]);
 
@@ -19,8 +18,8 @@ export default function MainComponent ({  modal, threedaysPageClose }) {
             <div className="container">
                 {modal && (
                     <ModalComponent 
-                        // threedaysPageClose={threedaysPageCloses} 
-                        finalResult={finalResult} setFinalResult={setFinalResult} 
+                        threedaysPageClose={threedaysPageClose} 
+                        setFinalResult={setFinalResult} 
                     />
                 )}
 
