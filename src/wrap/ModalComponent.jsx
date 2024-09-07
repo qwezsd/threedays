@@ -23,24 +23,6 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     const [isStarted, setIsStarted] = useState(false); // 시작 여부 상태
     const [stickerSelection, setStickerSelection] = useState(null); // 스티커 선택창 상태
 
-    const calculateFinalResult = () => {
-        let totalScore = 0;
-        Object.values(stickers).forEach(sticker => {
-            if (sticker === 'success_day'){
-                totalScore += 100;
-            }
-            else if (sticker === 'fail_day'){
-                totalScore += 50;
-            }
-        })
-        if(totalScore/duration >= 50){
-            setFinalResult('success')
-        }
-        else {
-            setFinalResult('fail')
-        }
-        threedaysPageClose()
-    }
 
     const handleDurationChange = (e) => {
         setDuration(Number(e.target.value));
@@ -81,18 +63,21 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult}) {
     const handleFinalResult = () => {
         const totalScore = Object.values(stickers).reduce((acc, stickerId) => {
             const sticker = stickersOption.find(sticker => sticker.id === stickerId);
-            return acc + (sticker ? sticker.score : 0)
+            return acc + (sticker ? sticker.score : 0);
         }, 0);
-        if(totalScore >= 50 ){
-            setFinalResult('success')
-            console.log('성공 ㅋㅎ')
-        }//fail.png만 제대로 안 나옴 확인...
-        else {
-            setFinalResult('fail')
-            console.log('실패?')
+    
+        const averageScore = totalScore / duration
+
+        if (averageScore >= 50) {
+            setFinalResult('success');
+            console.log('성공 ㅋㅎ');
+        } else {
+            setFinalResult('fail');
+            console.log('실패?');
         }
-        threedaysPageClose();
-    }
+        threedaysPageClose();  // 모달 닫기
+    };
+    
 
     const onClickPrevPage = () => {
         setIsStarted(false)
