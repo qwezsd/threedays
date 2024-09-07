@@ -23,7 +23,7 @@ export default function MainComponent({ modal, threedaysPageClose }) {
                     />
                 )}
 
-                {finalResult && (
+                {finalResult !== null && (
                     <div className="final-image">
                         <img src={finalResult === 'success' ? success : fail} alt="Final Result" />
                     </div>
