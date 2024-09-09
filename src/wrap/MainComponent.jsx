@@ -5,7 +5,7 @@ import fail from '../wrap/fail.png';
 import ModalComponent from './ModalComponent';
 
 export default function MainComponent({ modal, threedaysPageClose }) {
-    const [finalResult, setFinalResult] = useState(null); // 초기값을 null로 설정
+    const [finalResult, setFinalResult] = useState(null);
 
     React.useEffect(() => {
         if (finalResult !== null) {
