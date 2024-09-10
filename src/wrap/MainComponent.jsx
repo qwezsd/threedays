@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './scss/main.scss';
 import success from '../wrap/success.png';
 import fail from '../wrap/fail.png';
 
+export default function MainComponent({ finalResult }) {
 
-export default function MainComponent({ finalResult, threedaysPageClose }) {
-    
     React.useEffect(() => {
-        if (finalResult !== null) {
-            console.log(`최종 결과: ${finalResult === 'success' ? '성공' : '실패'}`);
+        if (finalResult.length > 0) {
+            console.log('최종 결과:', finalResult.map((result, idx) => `결과 ${idx + 1}: ${result === 'success' ? '성공' : '실패'}`).join(', '));
         }
     }, [finalResult]);
 
     return (
         <div id="main">
             <div className="container">
-                {finalResult !== null && (
+                {finalResult.length > 0 && (
                     <div className="final-image">
-                        <img src={finalResult === 'success' ? success : fail} alt="Final Result" />
+                        <ul>
+                            {finalResult.map((result, index) => (
+                                <li key={index}>
+                                    <img src={result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
+                                    <p>{`결과 ${index + 1}: ${result === 'success' ? '성공' : '실패'}`}</p>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 )}
             </div>

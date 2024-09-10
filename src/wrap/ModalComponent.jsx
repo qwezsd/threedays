@@ -26,7 +26,20 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
     const [stickers, setStickers] = useState({}); // 날짜별 스티커 상태 관리
     const [isStarted, setIsStarted] = useState(false); // 시작 여부 상태
     const [stickerSelection, setStickerSelection] = useState(null); // 스티커 선택창 상태
+    const [selectedResult, setSelectedResult] = useState(null);
+    const [goal, setGoal] = useState('');
 
+    const handleGoalChange = (e) => {
+        setGoal(e.target.value);
+    };
+
+    const handleSubmit = () => {
+        if (selectedResult && goal) {
+            setFinalResult(selectedResult, goal);  // 결과와 목표 함께 전달
+        } else {
+            console.log("목표와 결과를 모두 입력하세요.");
+        }
+    };
 
     const handleDurationChange = (e) => {
         setDuration(Number(e.target.value));
@@ -90,6 +103,8 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
     const handleStickerClick = (date) => {
         setStickerSelection(date); // 선택창을 열고 현재 날짜를 저장
     };
+
+
 
     return (
         <div id='modal' onClick={onClickOutsideModal}>
