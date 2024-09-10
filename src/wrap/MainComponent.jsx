@@ -23,6 +23,11 @@ export default function MainComponent({ modal, threedaysPageClose }) {
                     />
                 )}
 
+                 {/* <ModalComponent 
+                    threedaysPageClose={threedaysPageClose} 
+                    setFinalResult={setFinalResult} 
+                /> */}
+
                 {finalResult !== null && (
                     <div className="final-image">
                         <img src={finalResult === 'success' ? success : fail} alt="Final Result" />
