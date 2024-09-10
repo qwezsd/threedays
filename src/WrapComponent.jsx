@@ -6,6 +6,7 @@ import MainComponent from './wrap/MainComponent';
 
 export default function WrapComponent () {
 
+    const [finalResult, setFinalResult] = useState(null);
     const [state, setState] = useState({
         modal : false
     })
@@ -26,9 +27,9 @@ export default function WrapComponent () {
     return (
         <div id='wrap' >
             <HeaderComponent newPageOpenModal={newPageOpenModal}/>
-            <MainComponent threedaysPageClose={threedaysPageClose} modal={state.modal}/>
+            <MainComponent threedaysPageClose={threedaysPageClose} finalResult={finalResult}modal={state.modal}/>
             {state.modal &&
-                <ModalComponent threedaysPageClose={threedaysPageClose} />
+                <ModalComponent setFinalResult={setFinalResult} threedaysPageClose={threedaysPageClose} />
             }
         </div>
     );
