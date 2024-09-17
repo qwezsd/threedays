@@ -19,7 +19,6 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
     // 함수가 잘 전달된 것인지 확인하는 로그
     console.log(setFinalResult);
 
-    // 나머지 코드...
 
     const [duration, setDuration] = useState(3); // 기본값은 3일
     const [dates, setDates] = useState([]);
