@@ -31,7 +31,7 @@ export default function WrapComponent() {
     const handleFinalResult = (result, goal) => {
         setFinalResults(prevResults => [...prevResults, result]);
         setGoals(prevGoals => [...prevGoals, goal])
-        threedaysPageClose();  // modal 닫기
+        threedaysPageClose();
     };
 
     
