@@ -73,10 +73,10 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
 
         if (averageScore >= 50) {
             setFinalResult('success');
-            console.log('성공 ㅋㅎ');
+            console.log('평균 점수내기 성공');
         } else {
             setFinalResult('fail');
-            console.log('실패?');
+            console.log('평균 점수내기 실패');
         }
         threedaysPageClose(); 
     };
