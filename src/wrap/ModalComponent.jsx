@@ -12,7 +12,7 @@ import fail from '../wrap/fail.png';
 
 const stickersOption = [
     { id: 'success', src: successDay, alt: 'Success', score : 100 },
-    { id: 'fail', src: failDay, alt: 'Fail', score:50 }
+    { id: 'fail', src: failDay, alt: 'Fail', score: 0 }
 ];
 
 export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
@@ -73,7 +73,7 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
 
         if (averageScore >= 50) {
             setFinalResult('success');
-            console.log('평균 점수내기 성공');
+            console.log('평균 점수내기 성공', averageScore);
         } else {
             setFinalResult('fail');
             console.log('평균 점수내기 실패');
