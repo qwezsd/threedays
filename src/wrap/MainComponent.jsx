@@ -14,18 +14,138 @@ export default function MainComponent({ finalResult }) {
     return (
         <div id="main">
             <div className="container">
-                {finalResult.length > 0 && (
+                {/* {finalResult.length > 0 && ( */}
                     <div className="final-image">
                         <ul>
-                            {finalResult.map((result, index) => (
+                            {/* {finalResult.map((result, index) => (
                                 <li key={index}>
                                     <img src={result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
                                     <p>{`결과 ${index + 1}: ${result === 'success' ? '성공' : '실패'}`}</p>
                                 </li>
-                            ))}
+                            ))} */}
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
+                            <div className="gap">
+                                <li >
+                                    <img src={success} alt="" />
+                                    <p>성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공성공</p>
+                                </li>
+                            </div>
                         </ul>
                     </div>
-                )}
+                {/* )} */}
             </div>
         </div>
     );

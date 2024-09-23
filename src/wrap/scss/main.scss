@@ -1,6 +1,7 @@
 #main {
     width: 100%;
     // height: 100vh;
+    user-select: none;
     .container {
         width: 100%;
         max-width: 1300px;
@@ -10,15 +11,25 @@
             ul {
                 width: 100%;
                 display: flex;
+                flex-wrap: wrap;
                 li {
-                    padding: 0 20px;
-                    img {
-                        
-                        width: 110px;
-                        height: 70px;
-                    }
-                    p {
-
+                    width: calc(100% / 6);
+                    padding: 20px;
+                    .gap {
+                        width: 100%;;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            width: 110px;
+                            height: 70px;
+                        }
+                        p {
+                            text-align: center;
+                            text-overflow: ellipsis;
+                            white-space : nowrap;
+                            overflow: hidden;
+                        }
                     }
                 }
             }
