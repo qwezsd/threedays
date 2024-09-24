@@ -6,7 +6,6 @@ import MainComponent from './wrap/MainComponent';
 
 export default function WrapComponent() {
     
-    const [goals, setGoals] = useState([])
     const [finalResults, setFinalResults] = useState([]);
     const [state, setState] = useState({
         modal: false
@@ -27,13 +26,10 @@ export default function WrapComponent() {
         });
     };
 
-    // 작심삼일 목표와 결과를 배열에 누적 저장
     const handleFinalResult = (result, goal) => {
-        setFinalResults(prevResults => [...prevResults, result]);
-        setGoals(prevGoals => [...prevGoals, goal])
+        setFinalResults(prevResults => [...prevResults, {result, goal}]);
         threedaysPageClose();
     };
-
     
     return (
         <div id='wrap'>

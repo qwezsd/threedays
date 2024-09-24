@@ -16,15 +16,15 @@ const stickersOption = [
 ];
 
 export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
-    // 함수가 잘 전달된 것인지 확인하는 로그
-    console.log(setFinalResult);
-
 
     const [duration, setDuration] = useState(3); // 기본값은 3일
     const [dates, setDates] = useState([]);
     const [stickers, setStickers] = useState({}); // 날짜별 스티커 상태 관리
     const [isStarted, setIsStarted] = useState(false); // 시작 여부 상태
     const [stickerSelection, setStickerSelection] = useState(null); // 스티커 선택창 상태
+    const [state, setState] = useState({
+        goal : ''
+    })
 
 
     const handleDurationChange = (e) => {
@@ -72,14 +72,15 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
         const averageScore = totalScore / duration
 
         if (averageScore >= 50) {
-            setFinalResult('success');
+            setFinalResult('success', state.goal);
             console.log('평균 점수내기 성공', averageScore);
         } else {
-            setFinalResult('fail');
+            setFinalResult('fail', state.goal);
             console.log('평균 점수내기 실패');
         }
         threedaysPageClose(); 
     };
+    
     
 
     const onClickPrevPage = () => {
@@ -90,13 +91,19 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
         setStickerSelection(date); // 선택창을 열고 현재 날짜를 저장
     };
 
+    const onChangeGoal = (e) => {
+        setState({
+            goal :e.target.value
 
+        })
+        console.log(state.goal)
+    }
 
     return (
         <div id='modal' onClick={onClickOutsideModal}>
             <div className="container">
                 <div className="title">
-                    <input type="text" placeholder='목표 설정하삼' />
+                    <input onChange={onChangeGoal} type="text" placeholder='목표 설정하삼' value={state.goal}/>
                 </div>
                 <div className="content">
                     {!isStarted ?( //시작되지 않은 경우

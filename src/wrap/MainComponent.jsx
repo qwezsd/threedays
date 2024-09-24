@@ -3,7 +3,7 @@ import './scss/main.scss';
 import success from '../wrap/success.png';
 import fail from '../wrap/fail.png';
 
-export default function MainComponent({ finalResult }) {
+export default function MainComponent({ finalResult, goal }) {
 
     React.useEffect(() => {
         if (finalResult.length > 0) {
@@ -17,78 +17,15 @@ export default function MainComponent({ finalResult }) {
                 {/* {finalResult.length > 0 && ( */}
                     <div className="final-image">
                         <ul>
-                            {/* {finalResult.map((result, index) => (
+                            {finalResult.map((result, index) => (
                                 <li key={index}>
-                                    <img src={result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
-                                    <p>{`결과 ${index + 1}: ${result === 'success' ? '성공' : '실패'}`}</p>
+                                    <div className="gap">
+                                        <img src={result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
+                                    </div>
+                                    <p>{goal}</p>
                                 </li>
-                            ))} */}
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
-                            <li >
-                                <div className="gap">
-                                    <img src={success} alt="" />
-                                </div>
-                                    <p>tq</p>
-                            </li>
+                            ))}
+
                         </ul>
                     </div>
                 {/* )} */}
