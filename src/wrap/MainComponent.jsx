@@ -3,7 +3,7 @@ import './scss/main.scss';
 import success from '../wrap/success.png';
 import fail from '../wrap/fail.png';
 
-export default function MainComponent({ finalResult, goal }) {
+export default function MainComponent({ finalResult }) {
 
     React.useEffect(() => {
         if (finalResult.length > 0) {
@@ -17,12 +17,12 @@ export default function MainComponent({ finalResult, goal }) {
                 {/* {finalResult.length > 0 && ( */}
                     <div className="final-image">
                         <ul>
-                            {finalResult.map((result, index) => (
+                            {finalResult.map((item, index) => (
                                 <li key={index}>
                                     <div className="gap">
-                                        <img src={result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
+                                        <img src={item.result === 'success' ? success : fail} alt={`Result ${index + 1}`} />
                                     </div>
-                                    <p>{goal}</p>
+                                    <p>{item.goal}</p>
                                 </li>
                             ))}
 
