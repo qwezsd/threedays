@@ -96,7 +96,6 @@ export default function ModalComponent({ threedaysPageClose, setFinalResult }) {
             goal :e.target.value
 
         })
-        console.log(state.goal)
     }
 
     return (
